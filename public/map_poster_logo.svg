@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="none"
+   stroke="#ffffff"
+   stroke-width="3"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   class="lucide lucide-map-icon lucide-map"
+   version="1.1"
+   id="svg3"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <circle
+     style="fill:#8a0194;fill-opacity:1;stroke:none;stroke-width:9.71123;stroke-linecap:round;stroke-linejoin:round"
+     id="path4"
+     cx="12"
+     cy="12"
+     r="11.970077" />
+  <path
+     d="m 13.456564,7.5411645 a 1.3832515,1.3832515 0 0 0 1.236626,0 l 2.530659,-1.2656751 a 0.69162577,0.69162577 0 0 1 1.000783,0.6196967 v 8.8279109 a 0.69162577,0.69162577 0 0 1 -0.382469,0.618314 l -3.148973,1.574832 a 1.3832515,1.3832515 0 0 1 -1.236626,0 l -2.913128,-1.456564 a 1.3832515,1.3832515 0 0 0 -1.236627,0 L 6.7761503,17.725354 A 0.69162577,0.69162577 0 0 1 5.7753678,17.104966 V 8.277746 A 0.69162577,0.69162577 0 0 1 6.1578369,7.6594325 L 9.306809,6.0846007 a 1.3832515,1.3832515 0 0 1 1.236627,0 z"
+     id="path1"
+     style="stroke-width:2.07488" />
+  <path
+     d="M 14.074877,7.6870976 V 18.061484"
+     id="path2"
+     style="stroke-width:2.07488" />
+  <path
+     d="M 9.9251224,5.9386676 V 16.313054"
+     id="path3"
+     style="stroke-width:2.07488" />
+</svg>

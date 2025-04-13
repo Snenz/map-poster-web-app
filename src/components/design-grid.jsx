@@ -1,17 +1,34 @@
 "use client"
 
-import DesignCard from "./design-card";
-import useSWR from "swr";
+import { useState, useEffect } from "react";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import DesignCard from "./design-card";
 
 export default function DesignGrid() {
-    const { random_designs, error, isLoading } = useSWR('/api/random_designs', fetcher);
+    const [randomDesigns, setRandomDesigns] = useState(null);
+
+
+    useEffect(() => {
+        if (randomDesigns) return; // avoid fetching if already fetched
+
+        const fetchRandomDesigns = async () => {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/random_designs?count=8`, {
+                method: "GET"
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                setRandomDesigns(data);
+            }
+        };
+
+        fetchRandomDesigns();
+    }, []);
 
     return (
         <div className="grid grid-cols-4 grid-rows-1 gap-5 justify-center">
-            {!isLoading && !error && random_designs ? random_designs.map((design) => (
-                <DesignCard key={design.id} design={design} />
+            {randomDesigns ? randomDesigns.map((design) => (
+                <DesignCard key={design.design_id} design={design} />
             )) : Array.from({ length: 8 }, (_, i) => (
                 <DesignCard key={i} />
             ))}

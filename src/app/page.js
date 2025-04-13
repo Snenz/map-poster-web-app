@@ -1,17 +1,22 @@
 "use client"
 
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/mode-toggle";
-import DesignGrid from "@/components/design-grid";
-import { MapPlus, CornerDownLeft, CornerDownRight } from "lucide-react";
 import { redirect } from "next/navigation";
 
-export default function Home() {
+// shadcn UI components
+import { Button } from "@/components/ui/button";
+import DesignGrid from "@/components/design-grid";
+
+// lucide icons
+import { MapPlus, CornerDownLeft, CornerDownRight } from "lucide-react";
+
+export default function HomePage() {
   return (
     <main className="flex flex-col items-center">
       <div className="flex flex-col items-center mb-14">
-        <h1 className="font-bold text-6xl my-10">My Map Poster</h1>
+        <div className="flex flex-row items-center gap-x-3">
+          <img src="map_poster_logo.svg" width="80px" />
+          <h1 className="font-bold text-6xl my-10">My Map Poster</h1>
+        </div>
         <div className="flex flex-row space-x-5 items-center">
           <CornerDownRight className="animate-bounce" size={40} />
           <Button className="font-bold" size="lg" onClick={() => { redirect("/designer"); }}><MapPlus />Design your own poster ...</Button>

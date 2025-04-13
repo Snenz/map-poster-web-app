@@ -1,0 +1,45 @@
+@media print {
+    @page {
+        margin: 0; /* remove page borders */
+        size: A4 portrait;
+    }
+
+    /* hide everything */
+    * {
+        visibility: hidden;
+    }
+
+    body {
+        /* fix to enable printing background colors automatically */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* only show poster for printing */
+    #poster,
+    #poster * {
+        visibility: visible;
+    }
+
+    /* make poster fill whole page */
+    #poster {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border: 0;
+    }
+
+    /* hide map controls */
+    .mapboxgl-control-container * {
+        visibility: hidden !important;
+    }
+
+    /* grow map to page size */
+    canvas.mapboxgl-canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
