@@ -1,6 +1,12 @@
 # building stage
 FROM node:23-alpine AS builder
 
+# set environment variables for the build stage
+ARG NEXT_PUBLIC_MAPBOX_TOKEN
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_MAPBOX_TOKEN=$NEXT_PUBLIC_MAPBOX_TOKEN
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 WORKDIR /app
 
 # install all dependencies
@@ -23,7 +29,7 @@ COPY public ./public
 COPY next.config.mjs ./next.config.mjs
 
 # install only production dependencies
-RUN npm install --production
+RUN npm install --omit=dev
 
 # expose the port the Next.js app runs on
 EXPOSE 3000
