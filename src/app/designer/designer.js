@@ -194,7 +194,10 @@ export default function Designer() {
             }
 
             const data = await res.json();
-            alert(`Design /designer?design_id=${data.design_id}`);
+            if (data.design_id) {
+                // copy share link to clipboard
+                navigator.clipboard.writeText(`map-poster.jensjerosch.de/designer?design_id=${data.design_id}`);
+            }
         } catch (error) {
             console.error("Failed to send data:", error);
         }
