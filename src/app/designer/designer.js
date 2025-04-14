@@ -36,6 +36,8 @@ export default function Designer() {
     const mapContainerRef = useRef();
     const mapRef = useRef();
 
+    const [shareLink, setShareLink] = useState(null);
+
     // other map states
     const [locationSearchValue, setLocationSearchValue] = useState("");
     const defaultStyleUrl = "mapbox://styles/mapbox/standard";
@@ -129,6 +131,8 @@ export default function Designer() {
 
     // handle map style changes
     useEffect(() => {
+        setShareLink(null);
+
         if (baseStyleUrl !== "mapbox://styles/mapbox/standard") {
             mapRef.current.setStyle(baseStyleUrl);
         } else { // allow custom map settings for standard style map only
@@ -195,8 +199,7 @@ export default function Designer() {
 
             const data = await res.json();
             if (data.design_id) {
-                // copy share link to clipboard
-                navigator.clipboard.writeText(`map-poster.jensjerosch.de/designer?design_id=${data.design_id}`);
+                setShareLink(`map-poster.jensjerosch.de/designer?design_id=${data.design_id}`);
             }
         } catch (error) {
             console.error("Failed to send data:", error);
@@ -348,6 +351,11 @@ export default function Designer() {
 
                             {/* Share & Print Buttons */}
                             <div className="mt-4">
+                                {shareLink &&
+                                    <div>
+                                        <span className="text-fuchsia-800">Link: {shareLink}</span>
+                                    </div>
+                                }
                                 <Button onClick={() => { shareDesign(); }} type="submit" className="bg-fuchsia-800 mt-2 mr-2">
                                     <SwatchBook />Share Design Publicly
                                 </Button>
