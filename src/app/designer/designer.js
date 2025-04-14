@@ -81,6 +81,7 @@ export default function Designer() {
                 });
 
                 if (res.ok) {
+                    // apply loaded design data to map and cover settings
                     const data = await res.json();
                     setMapLocation(data.location);
                     setBaseStyleUrl(data.base_style);
@@ -160,6 +161,7 @@ export default function Designer() {
 
     // handle share design button click
     const shareDesign = async () => {
+        // prepare payload for API request
         const payload = {
             location: mapLocation,
             base_style: baseStyleUrl,
@@ -199,6 +201,7 @@ export default function Designer() {
 
             const data = await res.json();
             if (data.design_id) {
+                // show link to newly created design
                 setShareLink(`map-poster.jensjerosch.de/designer?design_id=${data.design_id}`);
             }
         } catch (error) {

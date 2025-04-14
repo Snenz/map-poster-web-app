@@ -44,7 +44,7 @@ export async function POST(request) {
         const { db } = await connectToDatabase();
         const collection = db.collection("shared_designs");
 
-        // TODO
+        // FIX: This is a temporary fix to add a preview image URL to the design data.
         const preview_img_url = "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg";
 
         const design_id = uuidv4();

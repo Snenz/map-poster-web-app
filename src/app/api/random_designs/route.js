@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 
 import { connectToDatabase } from "@/lib/mongodb-helper";
 
+/* Fetch a specific number of random designs. Returns an array of design uuids and image preview urls.
+ * The number of designs to fetch can be specified in the query string as "count".
+ */
 export async function GET(request) {
     try {
         const url = new URL(request.url);

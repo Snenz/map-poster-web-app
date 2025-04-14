@@ -7,7 +7,7 @@ import DesignCard from "./design-card";
 export default function DesignGrid() {
     const [randomDesigns, setRandomDesigns] = useState(null);
 
-
+    // fetch random designs for displaying them in the grid
     useEffect(() => {
         if (randomDesigns) return; // avoid fetching if already fetched
 
